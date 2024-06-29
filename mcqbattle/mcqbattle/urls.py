@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from mcqs.views import MCQListCreateView, MCQRetrieveUpdateDestroyView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("mcqs", MCQListCreateView.as_view(), name="mcq-list-create"),
+    path("mcqs/<uuid:pk>", MCQRetrieveUpdateDestroyView.as_view(), name="mcq-detail"),
 ]
